@@ -133,6 +133,41 @@
 
       finalizarAguardar();
       return false;
+    } else if (nomeVar.length <= 1){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para nome inválido)";
+
+      finalizarAguardar();
+      return false;
+    } else if (!emailVar.includes('@') || !emailVar.includes('.')) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para email inválido)";
+
+      finalizarAguardar();
+      return false;
+    } else if (senhaVar.length < 6){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para senha inválida)";
+
+      finalizarAguardar();
+      return false;
+    } else if (confirmacaoSenhaVar != senhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para confirmação de senha)";
+
+      finalizarAguardar();
+      return false;
+    } else if (cpfVar.length != 11) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para cpf inválido)";
+
+      finalizarAguardar();
+      return false;
     } else {
       setInterval(sumirMensagem, 5000);
     }
